@@ -10,12 +10,14 @@ const ErrorPage = () => {
       <div className="flex bg-green-500 space-y-8 w-[100vw] h-[100vh] flex-col items-center justify-center ">
         <span className="text-4xl font-bold"> 404 ERROR ! </span>
         <div className="justify-center flex flex-col">
-          <img
-            className="bell-animation"
-            src={Error}
-            style={{ width: "300px", height: "280px", objectFit: "cover" }}
-            alt="ErrorPagerror"
-          />{" "}
+          <marquee>
+        
+            <img
+              src={Error}
+              style={{ width: "300px", height: "280px", objectFit: "cover" }}
+              alt="ErrorPagerror"
+            />
+          </marquee>
         </div>
         <span className="flex flex-col items-center space-y-4">
           <p className="font-medium flex text-2xl leading-12">
