@@ -16,7 +16,7 @@ export default function Login() {
       localStorage.setItem("role", "admin");
       setLogging(true);
     } else {
-      alert("Invalid email or password. Please Check Again!");
+      alert("Invalid Email or Password");
     }
   };
 
@@ -29,8 +29,8 @@ export default function Login() {
 
         <div className="w-[50%] bg-black flex justify-center h-screen">
           <div className="text-white space-y-12 flex justify-center items-center flex-col ">
-            <h1 class="text-2xl font-extrabold  text-white md:text-5xl lg:text-4xl">
-              Login
+            <h1 class="text-xl font-extrabold  text-green-600 md:text-3xl lg:text-3xl">
+              Welcome to Elango's Spotify
             </h1>
             <div className="flex items-center space-x-28">
               <label className="font-bold text-lg">Email Id </label>

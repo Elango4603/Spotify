@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 import SearchIcon from "@mui/icons-material/Search";
 import HomeIcon from "@mui/icons-material/Home";
@@ -17,7 +17,6 @@ import Three from "../assets/images/three.jpg";
 import Sarkar from "../assets/images/Sarkar.jpg";
 import NineSix from "../assets/images/Nine.jpg";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-
 import PlayCircleFilledWhiteRoundedIcon from "@mui/icons-material/PlayCircleFilledWhiteRounded";
 import VolumeUp from "@mui/icons-material/VolumeUp";
 import { Link, Navigate } from "react-router-dom";
@@ -29,19 +28,38 @@ import ClosedCaptionOffIcon from "@mui/icons-material/ClosedCaptionOff";
 import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
 import QueueMusicIcon from "@mui/icons-material/QueueMusic";
 import DevicesOtherIcon from "@mui/icons-material/DevicesOther";
-import Top from "../assets/audios/Top-Tucker-MassTamilan.org.mp3";
-import Ennodu from "../assets/audios/Ennodu-Nee-Irundhal.mp3";
-import Kannu from "../assets/audios/Kannazhaga.mp3";
-import Kadhal from "../assets/audios/Kaathalae_Kaathalae-MassTamilan.com.mp3";
-import Idhazh from "../assets/audios/Idhazhin-Oram.mp3";
-import Sim from "../assets/audios/Simtaangaran-MassTamilan.org.mp3";
 import Cards from "./Cards";
-import { FavoriteOutlined } from "@mui/icons-material";
 
 export default function Demo() {
   // const [value, setValue] = useState(45);
   // const [volumeValue, setVolumeValue] = useState(20);
   const [iconColor, setIconColor] = useState("initialColor");
+  const [greeting, setGreeting] = useState("Good Morning");
+
+  useEffect(() => {
+    const updateGreeting = () => {
+      const currentHour = new Date().getHours();
+
+      if (currentHour >= 5 && currentHour < 12) {
+        setGreeting("Good Morning");
+      } else if (currentHour >= 12 && currentHour < 16) {
+        setGreeting("Good Afternoon");
+      } else if (currentHour >= 16 && currentHour < 19) {
+        setGreeting("Good Evening");
+      } else {
+        setGreeting("Good Night");
+      }
+    };
+
+    // Update greeting when the component mounts
+    updateGreeting();
+
+    // Update greeting every minute to account for time changes
+    const intervalId = setInterval(updateGreeting, 60000);
+
+    // Clean up interval when the component unmounts
+    return () => clearInterval(intervalId);
+  }, []);
 
   // const handleChange = (e, newValue) => {
   //   setValue(newValue);
@@ -72,7 +90,7 @@ export default function Demo() {
 
   return (
     <>
-      <div className="flex-col h-[100%] w-full  bg-black ">
+      <div className="h-[100%] w-full  bg-black ">
         <div className="h-[86%] fixed top-0 left-0 w-[25%] text-white bg-black">
           <div className="flex-col space-y-4 w-full h-full p-3">
             <div className=" bg-gray-900  rounded-xl font-medium  space-y-4 p-4 text-gray-300 text-sm  ">
@@ -149,8 +167,8 @@ export default function Demo() {
                   />
                   <div className="flex flex-col space-y-1 font-medium  text-gray-300 text-sm ">
                     <p className=" text-customGreen ">My Playlist #1</p>
-                    <p className="text-center flex  hover:text-white font-medium">
-                      <marquee> Playlist of Elangamani E </marquee>
+                    <p className="text-center flex justify-center items-center hover:text-white font-medium">
+                      <marquee>Playlist of Elangamani E</marquee>
                     </p>
                   </div>
                 </div>
@@ -170,7 +188,7 @@ export default function Demo() {
                 <div className="flex ">
                   <ArrowCircleDownIcon sx={{ width: "20px", height: "20px" }} />
                 </div>
-                Install App
+                <a href="/">Install App</a>
               </div>
               <CircleNotificationsIcon className="bell-animation" />
               <AccountCircleIcon style={{ cursor: "pointer" }} />
@@ -180,8 +198,8 @@ export default function Demo() {
 
         <div className="h-full ml-[25%] w-[74%] mt-[6%] text-white bg-black">
           <div className="bg-gray-900 h-full space-y-5 rounded-xl p-3">
-            <div className="font-bold text-2xl w-full hover:text-customGreen cursor-pointer ">
-              Good Afternoon Elango !
+            <div className="font-bold text-2xl w-full hover:text-customGreen  hover:shadow-xl shadow-slate-300 cursor-pointer ">
+              {greeting} Cheif !
             </div>
 
             {/*Card*/}

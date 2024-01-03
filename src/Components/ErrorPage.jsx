@@ -11,10 +11,9 @@ const ErrorPage = () => {
         <span className="text-4xl font-bold"> 404 ERROR ! </span>
         <div className="justify-center flex flex-col">
           <marquee>
-        
             <img
               src={Error}
-              style={{ width: "300px", height: "280px", objectFit: "cover" }}
+              style={{ width: "300px", height: "310px", objectFit: "cover" }}
               alt="ErrorPagerror"
             />
           </marquee>
@@ -23,7 +22,7 @@ const ErrorPage = () => {
           <p className="font-medium flex text-2xl leading-12">
             Ennama Neenga Ipdi Panreengalae Ma !
           </p>
-          <p className="font-medium flex text-sm">
+          <p className="font-medium flex text-sm text-gray-900">
             Correct aana address type pannnunga ma !!
           </p>
 

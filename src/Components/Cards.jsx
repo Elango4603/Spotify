@@ -46,7 +46,7 @@ export default function Cards() {
 
   return (
     <>
-      <div className="grid grid-cols-3 bg-gray-900 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 bg-gray-900 gap-4">
         {playlist.map((item, index) => (
           <div key={index} className="text-sm font-medium gap-4">
             <div className="rounded items-center flex flex-grow group hover:bg-gray-500 hover:text-black cursor-pointer bg-gray-700">
@@ -60,7 +60,10 @@ export default function Cards() {
                   onClick={() => handleButtonClick(item.audio)}
                 >
                   <audio ref={audioRef} />
-                  <PlayCircleFilledIcon className="text-customGreen " />
+                  <PlayCircleFilledIcon
+                    style={{ width: "30px", height: "30px" }}
+                    className="text-customGreen "
+                  />
                 </button>
               </div>
             </div>
