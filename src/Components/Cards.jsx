@@ -30,7 +30,7 @@ const playlist = [
 export default function Cards() {
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const audioRef = useRef(null);
+  const audioRef = useRef();
 
   const handleButtonClick = (audio) => {
     if (audioRef.current) {
