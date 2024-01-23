@@ -199,7 +199,7 @@ export default function Demo() {
         <div className="h-full ml-[25%] w-[74%] mt-[6%] text-white bg-black">
           <div className="bg-gray-900 h-full space-y-5 rounded-xl p-3">
             <div className="font-bold text-2xl w-full hover:text-customGreen  hover:shadow-xl shadow-slate-300 cursor-pointer ">
-              {greeting} Cheif !
+              {greeting} Elango !
             </div>
 
             {/*Card*/}
